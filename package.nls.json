@@ -1,0 +1,11 @@
+{
+  "extension.displayName": "Timestamped Copy",
+  "extension.description": "Copy selected text or current line with timestamp to clipboard. Useful for logs, issues, chat, documentation. Format, timezone, position, brackets, separator customizable.",
+  "command.copySelection": "Copy with Timestamp",
+  "command.copySelectionWithFormat": "Copy with Timestamp (Choose Format)",
+  "command.copyNow": "Copy Timestamp Only",
+  "info.copied": "Copied with timestamp",
+  "info.copiedFormat": "Copied with format: {0}",
+  "info.copiedNow": "Timestamp copied",
+  "warn.noSelection": "No selection."
+}

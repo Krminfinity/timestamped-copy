@@ -1,0 +1,132 @@
+{
+  "name": "timestamped-copy",
+  "displayName": "Timestamped Copy",
+  "version": "0.0.1",
+  "description": "選択テキストや現在行にタイムスタンプ（日時）を付与してクリップボードへコピー。監査・ログ・Issue・チャット・ドキュメント用途に。フォーマット・タイムゾーン・位置・括弧・区切りカスタム可。",
+  "main": "./dist/extension.js",
+  "publisher": "KKJPDev",
+  "icon": "icon.png",
+  "scripts": {
+    "compile": "tsc -p ./"
+  },
+  "keywords": [
+    "vscode",
+    "timestamp",
+    "copy",
+    "clipboard",
+    "datetime",
+    "log",
+    "audit",
+    "issue",
+    "chat",
+    "support",
+    "monitor",
+    "paste",
+    "selection",
+    "timezone",
+    "format",
+    "productivity"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/mocha": "^10.0.10",
+    "@types/node": "^24.6.2",
+    "@types/vscode": "^1.80.0",
+    "@vscode/vsce": "^2.20.0",
+    "assert": "^2.1.0",
+    "mocha": "^11.7.4",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.0.0"
+  },
+  "engines": {
+    "vscode": ">=1.80.0"
+  },
+  "activationEvents": [
+    "onCommand:timestampedCopy.copySelection"
+  ],
+  "contributes": {
+    "commands": [
+      {
+        "command": "timestampedCopy.copySelection",
+        "title": "Copy with Timestamp"
+      },
+      {
+        "command": "timestampedCopy.copySelectionWithFormat",
+        "title": "Copy with Timestamp (Choose Format)"
+      },
+      {
+        "command": "timestampedCopy.copyNow",
+        "title": "Copy Timestamp Only"
+      }
+    ],
+    "menus": {
+      "editor/context": [
+        {
+          "command": "timestampedCopy.copySelection",
+          "when": "editorHasSelection",
+          "group": "navigation"
+        }
+      ]
+    },
+    "configuration": {
+      "type": "object",
+      "title": "Timestamped Copy",
+      "properties": {
+        "timestampedCopy.fallbackTarget": {
+          "type": "string",
+          "enum": [
+            "currentLine",
+            "prompt",
+            "none"
+          ],
+          "default": "currentLine",
+          "description": "未選択時の対象"
+        },
+        "timestampedCopy.format": {
+          "type": "string",
+          "default": "YYYY-MM-DD HH:mm",
+          "description": "タイムスタンプの書式"
+        },
+        "timestampedCopy.timezone": {
+          "type": "string",
+          "default": "local",
+          "description": "タイムゾーン (local/UTC)"
+        },
+        "timestampedCopy.position": {
+          "type": "string",
+          "enum": [
+            "prefix",
+            "suffix"
+          ],
+          "default": "prefix",
+          "description": "タイムスタンプの付与位置"
+        },
+        "timestampedCopy.brackets": {
+          "type": "string",
+          "enum": [
+            "square",
+            "round",
+            "none"
+          ],
+          "default": "square",
+          "description": "タイムスタンプの囲み文字"
+        },
+        "timestampedCopy.separator": {
+          "type": "string",
+          "default": " ",
+          "description": "タイムスタンプと本文の区切り文字"
+        },
+        "timestampedCopy.quickFormats": {
+          "type": "array",
+          "default": [
+            "YYYY-MM-DD HH:mm",
+            "YYYY/MM/DD HH:mm:ss",
+            "YYYY-MM-DDTHH:mm:ssZ"
+          ],
+          "description": "クイック選択で出す書式"
+        }
+      }
+    }
+  }
+}

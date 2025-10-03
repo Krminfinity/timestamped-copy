@@ -1,0 +1,11 @@
+{
+  "extension.displayName": "タイムスタンプ付きコピー",
+  "extension.description": "選択テキストや現在行をタイムスタンプ付きでクリップボードにコピー。ログ・Issue・チャット・ドキュメント用途に便利。書式・タイムゾーン・位置・括弧・区切りカスタム可。",
+  "command.copySelection": "タイムスタンプ付きコピー",
+  "command.copySelectionWithFormat": "書式選択してタイムスタンプ付きコピー",
+  "command.copyNow": "時刻のみコピー",
+  "info.copied": "時刻付きでコピーしました",
+  "info.copiedFormat": "指定書式でコピー: {0}",
+  "info.copiedNow": "時刻のみコピーしました",
+  "warn.noSelection": "選択がありません。"
+}
